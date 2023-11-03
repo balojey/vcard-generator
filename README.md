@@ -16,15 +16,14 @@ Before you begin using the vCard generator web app, ensure you have the followin
 
 - Python 3.x
 - Flask (a Python web framework)
-- xlsx_csv (for converting Excel files to csv)
-- flask-wtf (for creating forms)
 - vcf_creator (for creating vCards from csv files)
+- Pandas and Openpyxl (for handling excel sheet)
 - Poetry (for dependency management)
 
 Set up the project using:
 
 ```bash
-poetry add flask-wtf vcf_creator xlsx_csv
+poetry install
 ```
 
 ## Getting Started
@@ -58,7 +57,7 @@ poetry shell
 On macOS and Linux:
 
 ```bash
-source venv/bin/activate
+poetry shell
 ```
 
 6. Start the Flask web application:
@@ -71,7 +70,7 @@ The app should now be running locally at `http://localhost:5000`.
 
 ## Usage
 
-1. Prepare your contact data in an Excel spreadsheet. The spreadsheet should have a header row with columns for the following fields: Name, Phone, Email, Address, and any other relevant fields.
+1. Prepare your contact data in an Excel spreadsheet. The spreadsheet should have a header row with columns for the following fields: NAME and PHONE. Note the capital letters
 
 2. Upload the excel sheet on the web interface.
 

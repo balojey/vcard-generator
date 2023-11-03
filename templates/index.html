@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My vCard Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* Adjust layout for small screens */
+      @media screen and (max-width: 768px) {
+        .hero.is-fullheight {
+          height: auto;
+        }
+        .hero-body {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+        .title {
+          font-size: 2rem;
+        }
+        .subtitle {
+          font-size: 1.5rem;
+        }
+        .button.is-light.is-large {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-primary is-fullheight">
+      <div class="container">
+        <div>
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+            <li class="notification is-danger" style="margin-top: 10px">
+              {{ message }}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endwith %}
+        </div>
+        <div class="hero-body">
+          <div class="container has-text-centered target-here">
+            <h1 class="title">My vCard Generator</h1>
+            <h2 class="subtitle">Generate your own vCard with ease</h2>
+            <form
+              hx-post="/upload"
+              hx-target=".target-here"
+              enctype="multipart/form-data"
+            >
+              <div class="field">
+                <label class="label">Excel Sheet</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="file"
+                    name="excel_sheet"
+                    accept=".xlsx"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Prefix</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Enter prefix"
+                    name="prefix"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Suffix</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Enter suffix"
+                    name="suffix"
+                  />
+                </div>
+              </div>
+              <button
+                class="button is-light is-large"
+                style="margin-top: 50px; margin-bottom: 50px"
+                type="submit"
+              >
+                Generate vCard
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

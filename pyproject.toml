@@ -8,10 +8,10 @@ packages = [{include = "vcard_generator"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-flask = "^3.0.0"
-flask-wtf = "^1.2.1"
 vcf-creator = "^1.1.1"
-xlsx-csv = "^0.1.0"
+pandas = "2.1.0"
+openpyxl = "^3.1.2"
+flask-htmx = "^0.3.1"
 
 
 [build-system]

@@ -1,0 +1,11 @@
+<h1 class="title">Your vCard is ready</h1>
+<p class="subtitle">
+  <a
+    href="{{ url_for('download', filename=vcf_file) }}"
+    download="{{ vcf_file }}"
+    class="button is-light is-small"
+    style="margin: 20px"
+    >Download vCard</a
+  >
+</p>
+<a href="/" class="is-light is-small" style="margin: 20px">Go back</a>
