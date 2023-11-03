@@ -5,3 +5,6 @@ micros:
     src: ./
     engine: python3.9
     primary: true
+    run: python main.py
+    public_routes:
+      - "/*"
